@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Extensão Doida — Automação Instagram",
+  "version": "1.0.0",
+  "description": "Automação experimental de curtidas e comentários no Instagram (uso pessoal/educacional).",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "extensao-doida@example.com",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["*://*.instagram.com/*"],
+  "background": {
+    "scripts": ["common/config.js", "background/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Extensão Doida",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  }
+}

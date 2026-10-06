@@ -1,0 +1,14 @@
+{
+  "name": "extensao-doida",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Extensão Firefox experimental de automação do Instagram (uso educacional)",
+  "scripts": {
+    "lint": "web-ext lint",
+    "run": "web-ext run --firefox=/usr/bin/firefox --start-url https://www.instagram.com/",
+    "build": "web-ext build"
+  },
+  "devDependencies": {
+    "web-ext": "^8.4.0"
+  }
+}

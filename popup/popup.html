@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Extensão Doida</h1>
+    <label class="switch" title="Ativar/desativar automação">
+      <input type="checkbox" id="enabled">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="card">
+    <h2>Modo de operação</h2>
+    <label class="row"><input type="radio" name="mode" value="current"> Página atual (age no post aberto)</label>
+    <label class="row"><input type="radio" name="mode" value="feed"> Feed — scrollar e curtir</label>
+    <label class="row"><input type="radio" name="mode" value="list"> Lista de posts</label>
+  </section>
+
+  <section class="card">
+    <h2>Ações</h2>
+    <label class="row"><input type="checkbox" id="likeEnabled"> Curtir automaticamente</label>
+    <label class="row"><input type="checkbox" id="commentEnabled"> Comentar automaticamente</label>
+  </section>
+
+  <section class="card" id="cardList" hidden>
+    <h2>Lista de posts (um URL por linha)</h2>
+    <textarea id="postList" rows="5" placeholder="https://www.instagram.com/p/ABC123/&#10;https://www.instagram.com/reel/DEF456/"></textarea>
+    <div class="listbar">
+      <span id="listProgress" class="muted">0/0</span>
+      <button id="restartList" class="ghost small">Reiniciar lista</button>
+    </div>
+    <p class="hint">A extensão abre cada URL, curte/comenta e passa ao próximo. Ao terminar, para sozinha.</p>
+  </section>
+
+  <section class="card" id="cardScroll" hidden>
+    <h2>Scroll do feed</h2>
+    <div class="grid">
+      <label>Passo (px)
+        <input type="number" id="scrollStepPx" min="200" step="100">
+      </label>
+      <label>Intervalo (s)
+        <input type="number" id="scrollDelaySec" min="1" step="1">
+      </label>
+    </div>
+    <p class="hint">Rola o feed e curte o primeiro post visível. Se "Comentar" estiver ligado, também abre o post, comenta e fecha.</p>
+  </section>
+
+  <section class="card">
+    <h2>Intervalo entre ações (modo atual/lista)</h2>
+    <div class="grid">
+      <label>Mínimo (s)
+        <input type="number" id="delayMinSec" min="1" step="1">
+      </label>
+      <label>Máximo (s)
+        <input type="number" id="delayMaxSec" min="1" step="1">
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Limites</h2>
+    <div class="grid">
+      <label>Curtidas / hora
+        <input type="number" id="maxLikesPerHour" min="0" step="1">
+      </label>
+      <label>Curtidas / dia
+        <input type="number" id="maxLikesPerDay" min="0" step="1">
+      </label>
+      <label>Comentários / dia
+        <input type="number" id="maxCommentsPerDay" min="0" step="1">
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Comentários (um por linha)</h2>
+    <textarea id="comments" rows="4" placeholder="Muito bom!&#10;Adorei!"></textarea>
+  </section>
+
+  <section class="card">
+    <h2>Contadores de hoje</h2>
+    <div class="counters">
+      <span>Curtidas (dia): <b id="cLikesDay">0</b></span>
+      <span>Curtidas (hora): <b id="cLikesHour">0</b></span>
+      <span>Comentários (dia): <b id="cCommentsDay">0</b></span>
+    </div>
+    <button id="resetCounters" class="ghost small">Zerar contadores</button>
+  </section>
+
+  <footer class="actions">
+    <button id="save" class="primary">Salvar</button>
+    <button id="testLike" class="ghost">Testar curtida</button>
+    <button id="testComment" class="ghost">Testar comentário</button>
+  </footer>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="../common/config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
