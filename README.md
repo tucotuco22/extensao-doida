@@ -18,6 +18,19 @@ Instagram, com limites e delays aleatórios para reduzir o risco de detecção.
 
 ---
 
+## Resumo rápido
+
+1. **Instalar** — abra `about:debugging#/runtime/this-firefox` no Firefox,
+   clique em **"Carregar Extensão Temporária"** e selecione o `manifest.json`
+   (ou o `.xpi`). *Instalação permanente: [veja as opções](#instalar-a-extensão-para-outras-pessoas).*
+2. **Abra um post** no Instagram (`instagram.com/p/.../` ou um reel).
+3. **Abra o painel** (ícone da extensão) e clique em **"Testar curtida"** e
+   **"Testar comentário"** para confirmar que funciona.
+4. Escolha o **modo** (página atual, feed ou lista), configure limites e
+   **ative o interruptor** no topo. A automação roda sozinha.
+
+> ⚠️ Isso viola os Termos do Instagram — use numa conta descartável.
+
 ## Funcionalidades
 
 - Curtir o post visível (busca via `aria-label`, funciona em PT/EN/ES).
