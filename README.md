@@ -101,6 +101,46 @@ Veja a seção [Instalação (Firefox)](#instalação-firefox) abaixo.
 > Extensões temporárias são removidas ao fechar o Firefox. Para algo permanente,
 > empacote como `.xpi` (ou `web-ext sign`) e instale via `about:addons`.
 
+## Instalar a extensão (para outras pessoas)
+
+⚠️ A extensão **não é assinada** pela Mozilla. O Firefox comum só instala
+extensões **assinadas** de forma permanente. Quem for instalar tem 3 caminhos:
+
+### A) Modo temporário (Firefox comum — mais simples, mas some ao fechar)
+
+1. Baixe o `.xpi`/`.zip` (ou clone o repositório).
+2. Abra `about:debugging#/runtime/this-firefox`.
+3. Clique em **"Carregar Extensão Temporária"** e selecione o `.xpi`/`.zip`
+   (ou o `manifest.json` da pasta).
+4. Abra/recarregue o Instagram e use.
+
+### B) Instalação permanente (Firefox Developer Edition ou Nightly)
+
+1. Instale o [Firefox Developer Edition](https://www.mozilla.org/firefox/developer/)
+   (ou Nightly).
+2. Abra `about:config`, aceite o aviso e defina:
+   `xpinstall.signatures.required` → **false**
+3. Abra `about:addons` → ⚙️ → **"Instalar complemento a partir de arquivo"**
+   e selecione o `.xpi`.
+4. Pronto: fica instalada mesmo depois de fechar o navegador.
+
+### C) Assinatura pela Mozilla (instala permanente no Firefox comum)
+
+Crie credenciais em https://addons.mozilla.org/developers/ e rode:
+
+```bash
+npx web-ext sign --api-key SEU_API_KEY --api-secret SEU_API_SECRET
+```
+
+Isso gera um `.xpi` **assinado**, instalável permanentemente no Firefox normal.
+**Atenção:** a Mozilla pode recusar a assinatura porque a extensão automatiza o
+Instagram (política de plataformas de terceiros).
+
+### Onde baixar o `.xpi`
+
+Rode `npm run build` (gera em `web-ext-artifacts/`) e anexe o `.xpi` a um
+**Release** do GitHub para facilitar o download.
+
 ## Como usar
 
 1. Abra o Instagram numa página de post (`instagram.com/p/CODIGO/`) ou de reel —
