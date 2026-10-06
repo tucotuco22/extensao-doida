@@ -291,3 +291,9 @@ listeners. Por isso o content script:
 Mantenha os limites **baixos** (ex.: 20–30 curtidas/hora e 5–10 comentários/dia)
 e varie os comportamentos. Automatizar interações é o caminho mais rápido para o
 banimento da conta — use com moderação e apenas por aprendizado.
+
+## Screenshots
+<img width="351" height="644" alt="Screenshot_20261006_133235" src="https://github.com/user-attachments/assets/3d96d929-9020-41c5-81f6-fd0dce3a9f29" />
+<img width="337" height="602" alt="Screenshot_20261006_133252" src="https://github.com/user-attachments/assets/24330a6e-7372-4b50-818f-d40d77033dff" />
+
+
